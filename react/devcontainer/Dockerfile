@@ -6,6 +6,12 @@ FROM node:${VARIANT}
 
 # install zsh
 RUN apt-get update && apt-get install -y zsh
+# install oh-my-zsh
+RUN sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+# set zsh plugins and theme
+RUN sed -i 's/robbyrussell/mortalscumbag/' ~/.zshrc && sed -i 's/plugins=(git)/plugins=(git systemd npm ng node vscode)/' ~/.zshrc
+
+
 
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
