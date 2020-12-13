@@ -1,0 +1,39 @@
+{
+	"name": "HiPro Front",
+	"build": {
+		"dockerfile": "Dockerfile",
+		// Update 'VARIANT' to pick a Node version: 10, 12, 14
+		"args": {
+			"VARIANT": "latest"
+		}
+	},
+	// Set *default* container specific settings.json values on container create.
+	"settings": {
+		"terminal.integrated.shell.linux": "/bin/bash"
+	},
+	// Add the IDs of extensions you want installed when the container is created.
+	"extensions": [
+		"dbaeumer.vscode-eslint",
+		"esbenp.prettier-vscode",
+		"ms-vscode.vscode-typescript-next",
+		"xabikos.javascriptsnippets",
+		"humao.rest-client",
+		"andys8.jest-snippets",
+		"dsznajder.es7-react-js-snippets", // doesn't work in container, only local install option
+		"formulahendry.auto-close-tag",
+		"wayou.vscode-todo-highlight"
+		// "ms-vscode.vscode-typescript-tslint-plugin",
+		// "gurayyarar.expressjs-4-snippets",
+	],
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	"forwardPorts": [
+		1234,
+		6006,
+		3000
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	// "postCreateCommand": "npm install",
+	// Uncomment to connect as a non-root user. See https://aka.ms/vscode-remote/containers/non-root.
+	// "remoteUser": "node"
+	// "containerUser": "max"
+}
